@@ -1,0 +1,65 @@
+<?php
+
+
+// The domain we want to connect to
+
+$host = "www.scanmybrowser.com"; 
+
+// Page we want to POST or GET
+
+$page = "index.php";
+
+// The list of our fake referer urls
+
+$file = "urls.txt";
+$fp = file($file);
+srand((double)microtime()*1000000);
+$urls = $fp[array_rand($fp)];
+
+
+
+// construct a header for our request still need to add all headers and random user Agents
+
+$hdrs = array( 'http' => array(
+
+    'method' => "GET",
+
+
+
+    'header'=> "accept-language: en\r\n" . 
+
+        "Host: $host\r\n" .
+
+        "User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:x.x.x) Gecko/20041107 Firefox/x.x\r\n" .
+
+        "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\n" .
+
+        "Referer: $urls\r\n" .  // Setting the http-referer
+
+        "Content-Type: text/html\r\n" .
+
+        "Content-Length: 33\r\n\r\n" .
+
+        "Keep-Alive: 300\r\n"
+
+    )
+
+);
+
+
+
+// get the requested page from the server
+
+// with our header as a request-header
+
+
+
+$context = stream_context_create($hdrs);
+
+$fp = fopen("http://" . $host . "/" . $page, 'r', false, $context);
+
+fpassthru($fp);
+
+fclose($fp);
+
+?>

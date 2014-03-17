@@ -1,0 +1,141 @@
+BODY {
+	FONT-FAMILY: Tahoma, Arial, Verdana, sans-serif;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	BACKGROUND-COLOR:#FFFFFF;
+	background:url(i/bg.gif);
+	text-align: center;
+	MARGIN:0px;
+}
+
+TD {
+	FONT-FAMILY: Tahoma, Arial, Verdana, sans-serif;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+}
+
+.form_element{
+	WIDTH:97%;
+}
+
+#page{
+	border: 0px solid black;
+	margin: 0 auto 0 auto;
+	text-align: left;
+	width: 800px;
+	background-color:#ffffff;
+}
+#head {
+	height:117px;
+	width:1000px;
+	margin: 0 auto 0 auto;
+	text-align:center;
+}
+
+#date{
+	COLOR:#AF9270;
+	FONt-WEIGHT:bold;
+}
+
+#px10{
+	FONT-SIZE:10px;
+}
+
+#search{
+	padding-right:16px;
+	background:url(i/bg.gif);	
+	height:46px;
+}
+
+#menu{
+	background:url(i/m_bg.gif) repeat-x 0px 0px;
+	height:41px;
+	color:#ffffff;
+}
+
+#menu a{
+	font-size:12px;
+	font-weight:bold;
+	color:#ffffff;
+	margin:0px 10px 0px 10px;
+}
+
+#l{
+	float:left;
+	padding:12px 25px 35px 22px;
+	width:485px;
+}
+
+.num{
+	clear:both;
+	float:left;
+	width:52px;
+	text-align:center;
+	padding:7px 0px 7px 0px;
+}
+
+.artist{
+	float:left;
+	width:150px;
+	padding:7px 0px 7px 10px;
+}
+
+.track{
+	float:left;
+	width:152px;
+	padding:7px 0px 7px 0px;
+}
+
+.downloads{
+	float:left;
+	padding:7px 0px 7px 0px;
+}
+
+#rcol{
+	float:left;
+	width:265px;
+}
+
+
+#foot{
+	text-align:center;
+	color:#ffffff;
+	padding:30px 0px 65px 0px;
+	background:url(i/bg.gif);
+	clear:both;
+}
+
+H1 {
+	FONT-SIZE: 14px;
+	COLOR: #EC5631;
+	MARGIN:0px 0px 5px 0px;
+}
+P{
+	FONT-FAMILY: Tahoma, Verdana, sans-serif;
+	TEXT-INDENT: 0px;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	MARGIN:0px 0px 10px 0px;
+}
+LI {
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	LIST-STYLE-IMAGE:url(i/arrow.gif);
+	MARGIN-BOTTOM:2px;
+}
+UL{
+	MARGIN:0px 0px 10px 20px;
+}
+INPUT{
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+}
+TEXTAREA{
+	FONT-FAMILY: Tahoma, sans-serif;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+}
+
+A,A:active,A:visited,A:hover{
+	COLOR: #EC5631;
+}

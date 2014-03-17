@@ -1,0 +1,72 @@
+/* 
+    Document   : metro
+    Created on : 2012-12-11, 11:42:48
+    Author     : nightwolf
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+.metro0 {
+    margin: 6px;
+    height: 160px;
+    width: 140px;
+    background-image: url(../metro/metro.jpg);
+    float: left;
+}
+.metro5 {
+    background-image: url(../metro/metro3.jpg);
+    margin: 6px;
+    clear: none;
+    float: left;
+    height: 160px;
+    width: 140px;
+}
+.metro1 {
+    background-image: url(../metro/metro3.jpg);
+    margin: 6px;
+    float: left;
+    height: 160px;
+    width: 140px;
+}
+.metro4 {
+    background-image: url(../metro/metroblue.jpg);
+    margin: 6px;
+    float: left;
+    height: 160px;
+    width: 140px;
+}
+.metro3 {
+    background-image: url(../metro/metrobig1.jpg);
+    margin: 6px;
+    height: 160px;
+    width: 280px;
+    float: left;
+}
+.metro2 {
+    background-image: url(../metro/metrobig2.jpg);
+    margin: 6px;
+    float: left;
+    height: 160px;
+    width: 280px;
+}
+.metro6 {
+    background-image: url(../metro/metrobig3.jpg);
+    margin: 6px;
+    float: left;
+    height: 160px;
+    width: 280px;
+}
+.metrolist{
+    
+    margin: 7px;
+    height: 25px;
+    width: 900px;
+}
