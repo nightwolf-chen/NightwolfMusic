@@ -372,7 +372,7 @@
         </div>
 
         <div class="container">
-            <h1>Nightwolf Music</h1>
+            <h1>Nirvawolf Music</h1>
             <p>Only for music lovers</p>
 
             <div class="row">

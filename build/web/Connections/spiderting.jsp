@@ -17,9 +17,9 @@
     String databaseInfo = java.lang.System.getenv("VCAP_SERVICES");
     String host = "127.0.0.1";
     String port = "3306";
-    String password = "123";
+    String dbPassword = "123";
     String dbName  = "nightwolf_music";
-    String username  = "root";
+    String dbUsername  = "root";
    
     if (databaseInfo != null) {
 
@@ -30,13 +30,13 @@
         host = credentials.getString("hostname");
         port = String.valueOf(credentials.getInt("port"));
         dbName = credentials.getString("name");
-        username = credentials.getString("username");
-        password = credentials.getString("password");
+        dbUsername = credentials.getString("username");
+        dbPassword = credentials.getString("password");
     }
 
     String MM_spiderting_DRIVER = "com.mysql.jdbc.Driver";
-    String MM_spiderting_USERNAME = username;
-    String MM_spiderting_PASSWORD = password;
+    String MM_spiderting_USERNAME = dbUsername;
+    String MM_spiderting_PASSWORD = dbPassword;
     String MM_spiderting_STRING = "jdbc:mysql://"+host+":"+port+"/"+dbName+"";
 
 %>

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import jspsmart.File;
 import jspsmart.SmartUpload;
-import spiderting.MyJDBC;
+import spiders.MyJDBC;
 
 /**
  * 
