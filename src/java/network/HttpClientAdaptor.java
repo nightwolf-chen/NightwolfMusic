@@ -34,9 +34,17 @@ public class HttpClientAdaptor {
     protected CloseableHttpClient httpclient = HttpClients.createDefault();
     private final HttpClientContext localContext = HttpClientContext.create();
     private final int timeout = 3000;
-    private final String encode = "utf8";
+    private String encode = "utf8";
 
-    public HttpClientAdaptor() {
+    public HttpClientAdaptor(String encode) {
+
+        CookieStore cookieStore = new BasicCookieStore();
+        localContext.setCookieStore(cookieStore);
+        this.encode = encode;
+
+    }
+    
+     public HttpClientAdaptor() {
 
         CookieStore cookieStore = new BasicCookieStore();
         localContext.setCookieStore(cookieStore);

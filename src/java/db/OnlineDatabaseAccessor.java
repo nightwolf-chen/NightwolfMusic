@@ -12,9 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author nightwolf 陈纪栋 这个类使用ResultSet来操作数据库，使用ResultSet时保持数据库连接
- * 需要手动管理Connection Statement 和 ResultSet的关闭。
  */
 public class OnlineDatabaseAccessor {
 

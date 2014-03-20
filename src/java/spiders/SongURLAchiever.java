@@ -118,7 +118,7 @@ public class SongURLAchiever {
         artist = URLEncoder.encode(artist.trim(), "utf8");
         String apiUrl = "http://box.zhangmen.baidu.com/x?op=12&count=1&title="+songName+"$$"+artist+"$$$$";
       
-        HttpClientAdaptor clientAdaptor = HttpClientAdaptorFactory.createDefaultHttpClientAdaptor();
+        HttpClientAdaptor clientAdaptor = HttpClientAdaptorFactory.createDefaultHttpClientAdaptor("utf8");
         
         String xmlStr = clientAdaptor.doGet(apiUrl);
         

@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 /**
  *
  * @author nightwolf
- * 陈纪栋
  */
 public class Test {
         public static void main(String[] args){

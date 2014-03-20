@@ -11,7 +11,7 @@ package network;
  * @author bruce
  */
 public class HttpClientAdaptorFactory {
-    public static HttpClientAdaptor createDefaultHttpClientAdaptor(){
-        return new HttpClientAdaptor();
+    public static HttpClientAdaptor createDefaultHttpClientAdaptor(String connectionEncode){
+        return new HttpClientAdaptor(connectionEncode);
     }
 }

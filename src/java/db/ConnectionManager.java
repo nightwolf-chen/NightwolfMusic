@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 /**
  *
- * @author nightwolf é™ˆçºªæ ‹
+ * @author nightwolf ??ºª?? 
  */
 public class ConnectionManager {
 

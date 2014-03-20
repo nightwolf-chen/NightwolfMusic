@@ -1,19 +1,17 @@
-<%@page import="spiderting.SpiderTingLRC"%>
+<%@page import="object.Song"%>
+<%@page import="api.BaiduMusicApi"%>
+<%@page import="spiders.SpiderTingLRC"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="spiderting.SongURLAchiever"%>
+<%@page import="spiders.SongURLAchiever"%>
 <%@page import="java.net.Proxy"%>
 <%@page import="java.net.SocketAddress"%>
 <%@page import="java.net.InetSocketAddress"%>
 <%@ include file="../Connections/spiderting.jsp" %>
 <%@ page contentType="text/html; charset=gb2312" language="java" import="java.sql.*" errorPage="" %>
 <%
-    SocketAddress addr = new InetSocketAddress("202.98.123.126", 8080);//是代理地址:192.9.208.16:3128
-   // :8080
-    //211.144.120.141 old
-    Proxy typeProxy = new Proxy(Proxy.Type.HTTP, addr);
-
+   
     String songId = request.getParameter("songid");
-    String songURL = new SongURLAchiever().getCurrentDownURL(songId, typeProxy);
+    
     //out.println("songURL"+songURL+"songid"+songId+"url:"+SongURLAchiever.getCurrentDownURL(songId)) ;
     Driver DriverRecordset1 = (Driver) Class.forName(MM_spiderting_DRIVER).newInstance();
     Connection Conn = DriverManager.getConnection(MM_spiderting_STRING, MM_spiderting_USERNAME, MM_spiderting_PASSWORD);
@@ -71,6 +69,9 @@
         rs1.close();
     }
     System.out.println(songName + " " + singerName + " " + singerId);
+    
+    Song currentSong = new BaiduMusicApi().getSongDetail(songName, singerName);
+    String songURL = currentSong.getSongUrl();
 %>
 <%//这段代码对用户喜爱的歌曲的数据进行更新
 
@@ -232,8 +233,8 @@
                 <div class="span10">
                     <div align="center">歌词:
                         <%
-                            SpiderTingLRC lrc = new SpiderTingLRC(songId);
-                            String lrcString = lrc.getLrc();
+                          
+                            String lrcString = currentSong.getLrc();
                             String[] lrcStrings = lrcString.split("\n");
                             for (String tmp : lrcStrings) {
                                 out.println(tmp + "<br>");

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!--
+Copyright 2014 bruce.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<result>
+    <count>1</count>
+    <url>
+        <encode>
+<![CDATA[
+http://zhangmenshiting.baidu.com/data2/music/41721616/ZWNqZmZsaG5fn6NndK6ap5WXcGVqmZlqapdqa5qcnJlklpdpam6Za5OUZppumWholGhol2pqZ26VYpZpZW2ZbJRoalqin5t1YWBnZW5paXFnZWxla2poaDE$
+]]>
+        </encode>
+        <decode>
+<![CDATA[
+41721616.mp3?xcode=15cb29e77efea3dd558b3bb3f9c10c65c5406d0c507b4c67&mid=0.41932963916410
+]]>
+        </decode>
+        <type>8</type>
+        <lrcid>40913</lrcid>
+        <flag>1</flag>
+    </url>
+    <durl>
+        <encode>
+<![CDATA[
+http://zhangmenshiting2.baidu.com/data2/music/17992269/YmlsbWdobXFfn6NndK6ap5WXcGVqmZlqapdqa5qcnJlklpdsaG5naGJjZ2lrb5idYWtmam5vnWqVlZdmbGZnmWGVZlqin5t1YWBnZW5paXFnZWxla2poaDE$
+]]>
+        </encode>
+        <decode>
+<![CDATA[
+17992269.mp3?xcode=15cb29e77efea3dd83800114569ae093699f2dcd2700a0c3&mid=0.41932963916410
+]]>
+        </decode>
+        <type>8</type>
+        <lrcid>40913</lrcid>
+        <flag>1</flag>
+    </durl>
+    <p2p>
+        <hash>fc1d20fe48805d19c4a824160420c384e9f5b39c</hash>
+        <url>
+<![CDATA[
+http://zhangmenshiting.baidu.com/data2/music/12761563/12761563.mp3?xcode=15cb29e77efea3dd1dcf30431334ab0d6734f3bcfb58fabf
+]]>
+        </url>
+        <type>mp3</type>
+        <size>9267655</size>
+        <bitrate>192</bitrate>
+    </p2p>
+</result>
