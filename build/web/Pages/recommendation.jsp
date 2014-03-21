@@ -6,9 +6,9 @@
 
 
 <%@page import="java.net.URLDecoder"%>
-<%@page import="spiderting.SpiderTingLRC"%>
-<%@page import="spiderting.SongURLAchiever"%>
-<%@page import="spiderting.SpiderTingIntroduction"%>
+<%@page import="spiders.SpiderTingLRC"%>
+<%@page import="spiders.SongURLAchiever"%>
+<%@page import="spiders.SpiderTingIntroduction"%>
 <%@ page contentType="text/html; charset=gb2312" language="java" import="java.sql.*" errorPage="" %>
 <%@ include file="../Connections/spiderting.jsp" %>
 <%

@@ -31,7 +31,7 @@ public class TimeTool {
     private final SimpleDateFormat timeFormate;
 
     public TimeTool() {
-        this.timeFormate = new SimpleDateFormat("YYYY:DD:HH:mm:ss");
+        this.timeFormate = new SimpleDateFormat("yyyy.MM.dd.HH:mm:ss");
     }
 
     public String getCurrentTime() {

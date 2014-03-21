@@ -45,7 +45,9 @@ public class HttpProxyGetter {
         List<HttpHost> proxies = this.getAvailableProxies();
 
         int randomIndex = (int) ((Math.random() * 1000) % proxies.size());
-        return proxies.get(randomIndex);
+        HttpHost proxy  = proxies.get(randomIndex);
+        
+        return proxy;
     
     }
     public List<HttpHost> getAvailableProxies() {
