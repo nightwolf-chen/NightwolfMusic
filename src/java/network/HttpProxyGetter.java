@@ -117,10 +117,6 @@ public class HttpProxyGetter {
                 
                 HttpHost tmpHost = new HttpHost(host,port);
                 
-                if(!this.isProxyReachable(tmpHost)){
-                    continue;
-                }
-
                 ResultSet rs = OnlineDatabaseAccessor.select(stmt, "select * from proxies where host='" + host + "' and port='" + portStr + "'");
                 if (rs.next()) {
                     OnlineDatabaseAccessor.update(stmt, "update proxies set updatetime='" + currentTimeStr + "' where host='" + host + "' and port ='" + portStr + "'");
