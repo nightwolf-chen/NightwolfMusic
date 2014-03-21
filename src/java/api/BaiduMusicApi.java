@@ -52,6 +52,10 @@ public class BaiduMusicApi {
         String lrcUrl = this.generateLrcUrl(data.get(kLrcid));
         String lrcStr = clientAdaptor.doGet(lrcUrl);
         
+        if(lrcStr.contains("很抱歉，您要访问的页面不存在")){
+            lrcStr = "暂无歌词";
+        }
+        
         aSong.setLrc(lrcStr);
         aSong.setSongUrl(data.get(kSongURL));
 

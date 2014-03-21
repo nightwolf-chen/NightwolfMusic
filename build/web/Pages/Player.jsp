@@ -234,10 +234,16 @@
                     <div align="center">¸è´Ê:
                         <%
                           
+                            int numMin = 15;
                             String lrcString = currentSong.getLrc();
                             String[] lrcStrings = lrcString.split("\n");
                             for (String tmp : lrcStrings) {
                                 out.println(tmp + "<br>");
+                                numMin--;
+                            }
+                            
+                            while(numMin-- >= 0){
+                                out.println("<br>");
                             }
                         %>
                     </div>
