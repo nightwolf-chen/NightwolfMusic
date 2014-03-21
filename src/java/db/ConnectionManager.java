@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class ConnectionManager {
 
     private final String driver = "com.mysql.jdbc.Driver";
-    private String DatabaseName = "lib_data";
+    private String DatabaseName = "nightwolf_music";
     private final String Encode = "utf8";
     private String ServerHost = "localhost";
     private String port = "3306";

@@ -34,5 +34,14 @@ public class ProxiedHttpClientAdaptor extends HttpClientAdaptor {
                                      .setRoutePlanner(routePlanner)
                                      .build();
     }
+    
+    public ProxiedHttpClientAdaptor(HttpHost proxy,String encode){
+        super(encode);
+        
+         DefaultProxyRoutePlanner routePlanner = new DefaultProxyRoutePlanner(proxy);
+        this.httpclient = HttpClients.custom()
+                                     .setRoutePlanner(routePlanner)
+                                     .build();
+    }
 
 }

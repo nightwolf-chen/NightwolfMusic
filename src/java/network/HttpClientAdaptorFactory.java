@@ -6,12 +6,15 @@
 
 package network;
 
+import org.apache.http.HttpHost;
+
 /**
  *
  * @author bruce
  */
 public class HttpClientAdaptorFactory {
     public static HttpClientAdaptor createDefaultHttpClientAdaptor(String connectionEncode){
-        return new HttpClientAdaptor(connectionEncode);
+        HttpHost proxy = new HttpProxyGetter().getARandomProxy();
+        return new ProxiedHttpClientAdaptor(proxy, connectionEncode);
     }
 }
