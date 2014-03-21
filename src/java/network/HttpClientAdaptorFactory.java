@@ -14,7 +14,7 @@ import org.apache.http.HttpHost;
  */
 public class HttpClientAdaptorFactory {
     public static HttpClientAdaptor createDefaultHttpClientAdaptor(String connectionEncode){
-        HttpHost proxy = new HttpProxyGetter().getARandomProxy();
+        HttpHost proxy = new HttpProxyGetter().getAProxy();
         return new ProxiedHttpClientAdaptor(proxy, connectionEncode);
     }
 }

@@ -27,33 +27,44 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.http.HttpHost;
+import org.apache.http.client.methods.HttpGet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import util.TimeTool;
-
 
 /**
  *
  * @author bruce
  */
 public class HttpProxyGetter {
-    
-    private final int UpdateTimeGap = 1000 * 60 * 5;
-    
-    public HttpHost getARandomProxy(){
-        
-        List<HttpHost> proxies = this.getAvailableProxies();
 
-        int randomIndex = (int) ((Math.random() * 1000) % proxies.size());
-        HttpHost proxy  = proxies.get(randomIndex);
+    private final int UpdateTimeGap = 1000 * 60 * 5;
+
+    public HttpHost getAProxy() {
+
+        List<HttpHost> proxies = this.getAvailableProxies();
         
-        return proxy;
-    
+        for(HttpHost proxy :proxies){
+            if(this.isProxyReachable(proxy)){
+                return proxy;
+            }
+        }
+
+        return null;
     }
+
+  
+    private boolean isProxyReachable(HttpHost proxy) {
+        HttpClientAdaptor clientAdaptor = new ProxiedHttpClientAdaptor(proxy);
+        String result = clientAdaptor.doGet("http://www.baidu.com");
+        return (result != null) ? true : false;
+    }
+
     public List<HttpHost> getAvailableProxies() {
         try {
 
             this.checkProxyUpdate();
+
             List<HttpHost> proxies = new ArrayList<HttpHost>();
 
             Connection dbCon = new ConnectionManager().getConnection();
@@ -87,7 +98,7 @@ public class HttpProxyGetter {
         }
 
         System.out.println("Update proxy list...");
-        
+
         try {
 
             String currentTimeStr = new TimeTool().getCurrentTime();
@@ -103,6 +114,12 @@ public class HttpProxyGetter {
                 String host = jsonArray.getJSONObject(i).getString("host");
                 int port = jsonArray.getJSONObject(i).getInt("port");
                 String portStr = String.valueOf(port);
+                
+                HttpHost tmpHost = new HttpHost(host,port);
+                
+                if(!this.isProxyReachable(tmpHost)){
+                    continue;
+                }
 
                 ResultSet rs = OnlineDatabaseAccessor.select(stmt, "select * from proxies where host='" + host + "' and port='" + portStr + "'");
                 if (rs.next()) {
@@ -128,7 +145,7 @@ public class HttpProxyGetter {
 
         } catch (JSONException ex) {
             Logger.getLogger(HttpProxyGetter.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(HttpProxyGetter.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -137,7 +154,7 @@ public class HttpProxyGetter {
     private boolean shouldCheckUpdate() {
 
         try {
-            
+
             Connection dbCon = new ConnectionManager().getConnection();
             Statement stmt = OnlineDatabaseAccessor.createStatement(dbCon);
             ResultSet rs = OnlineDatabaseAccessor.select(stmt, "select * from proxies order by updatetime");
@@ -147,7 +164,7 @@ public class HttpProxyGetter {
                 String lastUpdateTime = rs.getString("updatetime");
                 String currentTime = tTool.getCurrentTime();
                 long timeGap = tTool.calculateDiscance(lastUpdateTime, currentTime);
-                if(timeGap >= 0 && timeGap < this.UpdateTimeGap){
+                if (timeGap >= 0 && timeGap < this.UpdateTimeGap) {
                     return false;
                 }
             }
