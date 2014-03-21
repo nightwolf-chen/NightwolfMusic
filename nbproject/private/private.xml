@@ -3,6 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/bruce/NetBeansProjects/NightwolfMusic_V_2/web/Pages/recommendation.jsp</file>
+            <file>file:/Users/bruce/NetBeansProjects/NightwolfMusic_V_2/src/java/util/TimeTool.java</file>
+            <file>file:/Users/bruce/NetBeansProjects/NightwolfMusic_V_2/src/java/network/HttpProxyGetter.java</file>
+            <file>file:/Users/bruce/NetBeansProjects/NightwolfMusic_V_2/web/Pages/Player.jsp</file>
+            <file>file:/Users/bruce/NetBeansProjects/NightwolfMusic_V_2/src/java/api/BaiduMusicApi.java</file>
+        </group>
     </open-files>
 </project-private>
