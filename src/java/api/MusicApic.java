@@ -14,14 +14,20 @@
  * limitations under the License.
  */
 
-package object;
+package api;
+
+import object.Album;
+import object.Artist;
+import object.Song;
 
 /**
  *
  * @author bruce
  */
-public class Album {
-    public String albumTitle;
-    public String albumId;
-    public String albumImgUrl;
+public interface MusicApic {
+    
+    abstract Song getSongById(String songId);
+    abstract Album getAlbumById(String albumId);
+    abstract Artist getArtistById(String artistId);
+            
 }

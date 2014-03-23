@@ -38,7 +38,7 @@ import util.TimeTool;
  */
 public class HttpProxyGetter {
 
-    private final int UpdateTimeGap = 1000 * 60 * 5;
+    private final int UpdateTimeGap = 1000 * 60 * 60;
 
     public HttpHost getAProxy() {
 

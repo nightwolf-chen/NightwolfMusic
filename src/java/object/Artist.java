@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package object;
 
 /**
@@ -21,7 +20,8 @@ package object;
  * @author bruce
  */
 public class Artist {
-    String artistName;
-    String artistId;
-    String artistUrl;
+
+    public String artistId;
+    public String artistName;
+    public String artistUrl;
 }

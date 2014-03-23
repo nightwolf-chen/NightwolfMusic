@@ -1,5 +1,5 @@
+<%@page import="api.BaiduFolkMusicApi"%>
 <%@page import="object.Song"%>
-<%@page import="api.BaiduMusicApi"%>
 <%@page import="spiders.SpiderTingLRC"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="spiders.SongURLAchiever"%>
@@ -70,7 +70,8 @@
     }
     System.out.println(songName + " " + singerName + " " + singerId);
     
-    Song currentSong = new BaiduMusicApi().getSongDetail(songName, singerName);
+//    Song currentSong = new BaiduMusicApi().getSongDetail(songName, singerName);
+    Song currentSong = new BaiduFolkMusicApi().getSongById(songId);
     String songURL = currentSong.getSongUrl();
 %>
 <%//这段代码对用户喜爱的歌曲的数据进行更新
@@ -236,6 +237,9 @@
                           
                             int numMin = 15;
                             String lrcString = currentSong.getLrc();
+                            if(lrcString == null){
+                                return ;
+                            }
                             String[] lrcStrings = lrcString.split("\n");
                             for (String tmp : lrcStrings) {
                                 out.println(tmp + "<br>");

@@ -24,6 +24,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import network.HttpClientAdaptor;
 import network.HttpClientAdaptorFactory;
+import object.Album;
+import object.Artist;
 import object.Song;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -34,7 +36,7 @@ import org.w3c.dom.NodeList;
  *
  * @author bruce
  */
-public class BaiduMusicApi {
+public class BaiduOfficialMusicApi implements MusicApic{
 
     private final String kSongURL = "kSongURL";
     private final String kLrcid = "kLrcid";
@@ -64,7 +66,7 @@ public class BaiduMusicApi {
         try {
             clientAdaptor.getHttpclient().close();
         } catch (IOException ex) {
-            Logger.getLogger(BaiduMusicApi.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BaiduOfficialMusicApi.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return aSong;
@@ -103,6 +105,21 @@ public class BaiduMusicApi {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        new BaiduMusicApi().getSongDetail("风继续吹", "张国荣");
+        new BaiduOfficialMusicApi().getSongDetail("风继续吹", "张国荣");
+    }
+
+    @Override
+    public Song getSongById(String songId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Album getAlbumById(String albumId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Artist getArtistById(String artistId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

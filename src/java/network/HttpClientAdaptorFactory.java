@@ -17,4 +17,10 @@ public class HttpClientAdaptorFactory {
         HttpHost proxy = new HttpProxyGetter().getAProxy();
         return new ProxiedHttpClientAdaptor(proxy, connectionEncode);
     }
+    
+     public static HttpClientAdaptor createDefaultHttpClientAdaptor(){
+//        HttpHost proxy = new HttpProxyGetter().getAProxy();
+//        return new ProxiedHttpClientAdaptor(proxy);
+         return new HttpClientAdaptor();
+    }
 }
