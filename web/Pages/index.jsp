@@ -400,7 +400,7 @@
                 <div class="metro<%=countStr%>">
                     <div><h5><%=orisongName%></h5></div>
                     <div><h5><a href="SingerInfo.jsp?singerid=<%=singerId%>"><%=(((Recordset1_data = Recordset1.getObject("SingerName")) == null || Recordset1.wasNull()) ? "" : Recordset1_data)%></a></h5></div>
-                    <div><h5><a href="Player.jsp?songid=<%=songId%>&songname=<%=songName%>&singerid=<%=singerId%>&singername=<%=singerName%>" target="_blank">йтлЩ<i class="icon-play icon-white"></i></a>
+                    <div><h5><a href="JPlayerTest.jsp?songid=<%=songId%>&songname=<%=songName%>&singerid=<%=singerId%>&singername=<%=singerName%>" target="_blank">йтлЩ<i class="icon-play icon-white"></i></a>
                     <a href="Download.jsp?songid=<%=songId%>" target="blank" >обть<i class="icon-download-alt icon-white"></i></a></h5>
                     </div>
                    

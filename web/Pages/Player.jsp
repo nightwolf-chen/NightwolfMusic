@@ -1,3 +1,4 @@
+<%@page import="api.BaiduOfficialMusicApi"%>
 <%@page import="api.BaiduFolkMusicApi"%>
 <%@page import="object.Song"%>
 <%@page import="spiders.SpiderTingLRC"%>
@@ -70,8 +71,8 @@
     }
     System.out.println(songName + " " + singerName + " " + singerId);
     
-//    Song currentSong = new BaiduMusicApi().getSongDetail(songName, singerName);
-    Song currentSong = new BaiduFolkMusicApi().getSongById(songId);
+    Song currentSong = new BaiduOfficialMusicApi().getSongDetail(songName, singerName);
+//    Song currentSong = new BaiduFolkMusicApi().getSongById(songId);
     String songURL = currentSong.getSongUrl();
 %>
 <%//这段代码对用户喜爱的歌曲的数据进行更新

@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -5,7 +6,7 @@
 <%@page import="com.mysql.jdbc.Driver"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="object.Song"%>
-<%@page import="api.BaiduMusicApi"%>
+<%@page import="api.BaiduOfficialMusicApi"%>
 <%@page import="spiders.SpiderTingLRC"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="spiders.SongURLAchiever"%>
@@ -74,7 +75,7 @@
     }
     System.out.println(songName + " " + singerName + " " + singerId);
 
-    Song currentSong = new BaiduMusicApi().getSongDetail(songName, singerName);
+    Song currentSong = new BaiduOfficialMusicApi().getSongDetail(songName, singerName);
     String songURL = currentSong.getSongUrl();
 
 %>
@@ -112,43 +113,24 @@
 
             $(document).ready(function() {
 
-                /*
-                 * Instance CirclePlayer inside jQuery doc ready
-                 *
-                 * CirclePlayer(jPlayerSelector, media, options)
-                 *   jPlayerSelector: String - The css selector of the jPlayer div.
-                 *   media: Object - The media object used in jPlayer("setMedia",media).
-                 *   options: Object - The jPlayer options.
-                 *
-                 * Multiple instances must set the cssSelectorAncestor in the jPlayer options. Defaults to "#cp_container_1" in CirclePlayer.
-                 */
+                var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
+                        {
+                            m4a: "https://href.li/?<%=songURL%>",
+                            oga: "https://href.li/?<%=songURL%>"
+                        },
+                {
+                    cssSelectorAncestor: "#cp_container_1"
+                });
 
-
-//                var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1",
-//                        {
-//                            m4a: echo songurl,
-//                            oga: echo songurl 
-//                        },
-//                {
-//                    cssSelectorAncestor: "#cp_container_1"
-//                });
-
-                $(document).ready(
-                        function() {
-                            $("#jquery_jplayer_1").jPlayer({
-                                ready: function() {
-                                    $(this).jPlayer("setMedia", {mp3: "<%=songURL%>"});
-                                },
-                                swfPath: "../js",
-                                supplied: "mp3",
-                                volume: 1.8,
-                                preload: 'metadata',
-                                solution: 'flash,html '
-                            }).jPlayer("play");
-                        });
-
-                console.log("a player is being created!");
             });
+        </script>
+
+        <script language=Javascript>
+
+            function open_new_window(full_link) {
+                window.open('javascript:window.name;', '<script>location.replace("' + full_link + '")<\/script>');
+            }
+
         </script>
     </head>
     <body>
@@ -181,11 +163,21 @@
             </div>
 
 
+            <%
+//                songName = new String(songName.getBytes("gb2312"),"utf8");
+//                singerName = new String(singerName.getBytes("gb2312"),"utf8");
+                songName = URLEncoder.encode(songName, "utf8");
+                singerName = URLEncoder.encode(singerName, "utf8");
+            %>
+            <!--<embed width="400px" height="95px" src="http://box.baidu.com/widget/flash/bdspacesong.swf?&amp;url=&amp;name=<%=songName%>&amp;artist=<%=singerName%>&amp;extra=&amp;autoPlay=false&amp;loop=true" type="application/x-shockwave-flash" allowscriptaccess="never" />-->
+
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="400" height="95" id="bdmp3widget8907"><param name="movie" value="https://href.li/?http://box.baidu.com/widget/flash/mbsong.swf?name=%E6%83%85%E4%BA%BA&artist=Beyond&extra="></param><param name="wmode" value="opaque"></param><param name="allowscriptaccess" value="always"></param><embed src="http://box.baidu.com/widget/flash/mbsong.swf?name=%E6%83%85%E4%BA%BA&artist=Beyond&extra=" type="application/x-shockwave-flash" wmode="opaque" allowscriptaccess="always" width="400" height="95" name="bdmp3widget8907"></embed></object>
 
         </div>
 
         <div class="row"> 
-            <button onclick="createPlayer();" value="create player"></button> 
+            <button onclick="createPlayer()
+                            ;" value="create player"></button> 
         </div>
     </body>
 </html>
